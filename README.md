@@ -23,6 +23,7 @@ TaskMaster is a Spring Boot REST API for collaborative task management. It enabl
 
 - User Registration
 - User Login using JWT Authentication
+- Secure Logout Endpoint
 - Password Encryption using BCrypt
 - User Profile Support
 
@@ -96,7 +97,7 @@ The application creates the following tables:
 |---------|----------|
 | POST | /users/register |
 | POST | /users/login |
-
+| POST | /users/logout |
 ---
 
 ## Tasks
@@ -155,13 +156,11 @@ The application creates the following tables:
 
 JWT authentication is used for securing all protected endpoints.
 
-Example:
+Protected requests require:
 
-```
+```text
 Authorization: Bearer <JWT_TOKEN>
-```
-
----
+--
 
 # DTO Usage
 
