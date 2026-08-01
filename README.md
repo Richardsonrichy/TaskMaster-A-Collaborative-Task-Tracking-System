@@ -158,7 +158,7 @@ JWT authentication is used for securing all protected endpoints.
 
 Protected requests require:
 
-```text
+
 Authorization: Bearer <JWT_TOKEN>
 --
 
