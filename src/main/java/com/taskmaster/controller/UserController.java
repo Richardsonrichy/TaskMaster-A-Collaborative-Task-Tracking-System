@@ -8,6 +8,9 @@ import com.taskmaster.dto.ProfileResponse;
 import org.springframework.web.bind.annotation.*;
 import com.taskmaster.dto.LoginRequest;
 import com.taskmaster.dto.UpdateProfileRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/users")
@@ -45,4 +48,14 @@ public class UserController {
 
     return userService.updateProfile(request);
      }
+
+     @PostMapping("/logout")
+     public ResponseEntity<?> logout() {
+
+    SecurityContextHolder.clearContext();
+
+    return ResponseEntity.ok(
+            Map.of("message", "Logout successful. Please discard the JWT token on the client side.")
+    );
+}
 }
